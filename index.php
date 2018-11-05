@@ -2,30 +2,48 @@
    include("config.php");
    session_start();
 
-   if($_SERVER["REQUEST_METHOD"] == "POST")
-   {
+   $username = "";
+   $errors = array();
 
-      $myusername = $_POST['username'];
-      $mypassword = $_POST['password'];
+   if($_SERVER["REQUEST_METHOD"] == "POST"){
+      $username = mysqli_real_escape_string($conn, $_POST['username']);
+      $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-      $sql = mysql_query("SELECT id FROM user WHERE username = '$myusername' and password = '$mypassword'", $conn);
+      if (empty($username)) { array_push($errors, "Username is required");}
+      if (empty($password)) { array_push($errors, "Password is required");}
 
-      $count = mysql_num_rows($sql);
-
-
-      if ($count == 1)
-      {
-
-         $_SESSION['login_user'] = $myusername;
-
-         header("location: welcome.php");
-
+      $pw = md5($password);
+    //   echo $password;
+    //   echo $pw;
+      $sql = "SELECT * FROM `user` WHERE `username` = '$username' AND `password` = '$pw';";
+      $result = mysqli_query($conn, $sql);
+      $login = mysqli_fetch_assoc($result);
+      if ($login) {
+        //   echo "Tes";
+          echo "Masuk $username";
+      }
+      else {
+          echo "Fail. Check Username or Password";
       }
 
-      else
-      {
-          session_destroy();
-      }
+    // $sql = mysql_query("SELECT id FROM user WHERE username = '$myusername' and password = '$mypassword'", $conn);
+
+    // $count = mysql_num_rows($sql);
+
+
+    // if ($count == 1)
+    // {
+
+    //     $_SESSION['login_user'] = $myusername;
+
+    //     header("location: welcome.php");
+
+    // }
+
+    // else
+    // {
+    //     session_destroy();
+    // }
    }
 ?>
 <html>
