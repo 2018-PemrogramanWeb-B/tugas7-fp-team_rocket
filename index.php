@@ -20,7 +20,8 @@
       $login = mysqli_fetch_assoc($result);
       if ($login) {
         //   echo "Tes";
-          echo "Masuk $username";
+        $_SESSION["username"] = $username;
+          header('location:home.php');
       }
       else {
           echo "Fail. Check Username or Password";
