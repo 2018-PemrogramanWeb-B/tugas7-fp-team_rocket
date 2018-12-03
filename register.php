@@ -27,6 +27,7 @@
       $query = "INSERT INTO user (username, password) VALUES ('$username', '$password')";
       mysqli_query($conn, $query);
       $_SESSION['username'] = $username;
+      header('location:home.php');
     }
   }
 ?>

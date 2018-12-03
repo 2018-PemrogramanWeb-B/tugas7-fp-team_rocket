@@ -25,3 +25,9 @@
         header('location:index.php');
     }
 ?>
+
+<html>
+<body>
+<button formaction="logout.php">Log Out</button>
+</body>
+</html>
