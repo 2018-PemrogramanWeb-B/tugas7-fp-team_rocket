@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 26, 2018 at 12:51 PM
+-- Generation Time: Dec 03, 2018 at 06:52 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -54,6 +54,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `finished_activities`, `physical_activities`, `intellectual_activities`, `social_activities`) VALUES
+(1, 'bosmo', '04ac1ae3058504acc7d5cc35d0122ed2', 0, 0, 0, 0);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -84,7 +91,7 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

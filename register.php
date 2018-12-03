@@ -27,7 +27,7 @@
       $query = "INSERT INTO user (username, password) VALUES ('$username', '$password')";
       mysqli_query($conn, $query);
       $_SESSION['username'] = $username;
-      header('location:home.php');
+      header('location:index.php');
     }
   }
 ?>
@@ -57,7 +57,7 @@
 
       <div align = "center">
          <div style = "width:300px; border: solid 1px #333333; " align = "left">
-            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
+            <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Register</b></div>
 
             <div style = "margin:30px">
 
