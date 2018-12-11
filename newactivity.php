@@ -11,7 +11,9 @@
       $activity = mysqli_real_escape_string($conn, $_POST['activity']);
       $deadline = mysqli_real_escape_string($conn, $_POST['deadline']);
       $category = mysqli_real_escape_string($conn, $_POST['category']);
-      $user_id = mysqli_fetch_assoc(mysqli_query($conn,"SELECT `id` FROM `user` WHERE `username` = '$_SESSION[username]';"));
+      $sql = "SELECT `id` FROM `user` WHERE `username` = '$_SESSION[username]';
+      $result = mysqli_query($conn, $sql);
+      $user_id = mysqli_fetch_assoc($result);
 
       if (empty($activity)) { array_push($errors, "Please enter activity name");}
 
