@@ -11,14 +11,13 @@
       $activity = mysqli_real_escape_string($conn, $_POST['activity']);
       $deadline = mysqli_real_escape_string($conn, $_POST['deadline']);
       $category = mysqli_real_escape_string($conn, $_POST['category']);
-      $sql = "SELECT `id` FROM `user` WHERE `username` = '$_SESSION[username]'";
+      $sql = "SELECT `id` FROM `user` WHERE `username` = '$_SESSION[username]';";
       $result = mysqli_query($conn, $sql);
       $userid = mysqli_fetch_assoc($result);
-
       if (empty($activity)) { array_push($errors, "Please enter activity name");}
 
       if (count($errors) == 0) {
-          $query = "INSERT INTO activity (user_id, activity, Deadline, Jenis) VALUES ('$userid', '$activity', '$deadline', '$category')";
+          $query = "INSERT INTO activity (user_id, activity, Deadline, Jenis) VALUES ('$userid[id]', '$activity', '$deadline', '$category')";
           mysqli_query($conn, $query);
           header('location:index.php');
       }

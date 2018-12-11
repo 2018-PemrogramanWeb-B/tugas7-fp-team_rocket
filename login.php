@@ -20,7 +20,7 @@
       $login = mysqli_fetch_assoc($result);
       if ($login) {
         //   echo "Tes";
-        $_SESSION["username"] = $username;
+        $_SESSION[username] = $username;
         $_SESSION[uid]=mysqli_fetch_assoc(mysqli_query($conn, "SELECT `id` FROM `user` WHERE `username` = '$username';"));
           header('location:index.php');
       }
