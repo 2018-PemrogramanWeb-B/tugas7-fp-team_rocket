@@ -2,6 +2,9 @@
    include("config.php");
    session_start();
 
+   if (!$_SESSION){
+      header('index.php');
+   }
    $errors = array();
 
    if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -13,7 +16,7 @@
       if (empty($activity)) { array_push($errors, "Please enter activity name");}
 
       if (count($errors) == 0) {
-          $query = "INSERT INTO activity (user_id, activity, Deadline, Jenis) VALUES ('$user_id, $activity, $deadline, $category)";
+          $query = "INSERT INTO activity (user_id, activity, Deadline, Jenis) VALUES ('$userid', '$activity', '$deadline', '$category')";
           mysqli_query($conn, $query);
           header('location:index.php');
       }
@@ -52,13 +55,13 @@
                <form action = "" method = "post">
                   <label>Activity Name  :</label><input type = "text" name = "activity" class = "box"/><br /><br />
                   <label>Deadline  :</label><input type = "date" name = "deadline" class = "box" /><br/><br />
-                  <label>CLoginel>
-                  <select Login
-                    <optioLoginl">Physical</option>
-                    <optioLoginl">Intellectual</option>
-                    <optioLoginl">Social</option>
-                  </selectLogin
-                  <br><br>Login
+                  <label>Category
+                  <select>
+                    <option>Physical</option>
+                    <option>Intellectual</option>
+                    <option>Social</option>
+                  </select>
+                  <br><br>
                   <input type = "submit" value = " Submit "/><br />
                </form>
 
