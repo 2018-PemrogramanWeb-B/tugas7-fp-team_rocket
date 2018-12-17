@@ -21,8 +21,8 @@
       if ($login) {
         //   echo "Tes";
         $_SESSION[username] = $username;
-        $_SESSION[uid]=mysqli_fetch_assoc(mysqli_query($conn, "SELECT `id` FROM `user` WHERE `username` = '$username';"));
-          header('location:index.php');
+        $_SESSION[uid] = $login['id'];
+        header('location:index.php');
       }
       else {
           echo "Fail. Check Username or Password";
