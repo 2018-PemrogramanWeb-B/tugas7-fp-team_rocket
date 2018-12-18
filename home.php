@@ -21,64 +21,27 @@
 </head>
 <body>
     <form action="index.php" method="get">
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>MyJon</h1>
-  <p>FP PWEB B</p> 
-</div>
+      <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>MyJourney</h1>
+        <p>FP PWEB B</p> 
+      </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-    <?php
-      if ($_SESSION){
-        echo"<p>$_SESSION[username]<p>
-        <li class='nav-item'>
-        <a class='nav-link' href='logout.php'>Logout</a>
-      </li> ";
-    } else {
-        echo"<li class='nav-item'>
-        <a class='nav-link' href='login.php'>Login</a>
-      </li>
-      <li class='nav-item'>
-        <a class='nav-link' href='register.php'>Register</a>
-      </li>";
-    }
-    ?>
-      <li class="nav-item">
-        <a class="nav-link" href="config.php">Config</a>
-      </li>   
-      
-    </ul>
-  </div>  
+  <a class="navbar-brand" href="#"><?php if ($_SESSION){echo"$_SESSION[username]'s Home";}?></a>
+  <a class="navbar-brand" href="insert.php">Activity</a>
+  <a class="navbar-brand" href="logout.php">Log Out</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 </nav>
 
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
-      <h2>About Me</h2>
+      <h1><?php if ($_SESSION){echo"Welcome $_SESSION[username]!";}?></h1>
       <h5>Photo of me:</h5>
       <div class="fakeimg">Fake Image</div>
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">
