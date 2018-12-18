@@ -27,7 +27,7 @@
       $query = "INSERT INTO user (username, password) VALUES ('$username', '$password')";
       mysqli_query($conn, $query);
       $_SESSION[username] = $username;
-      header('location:home.php');
+      header('location:index.php');
     }
   }
 ?>
@@ -223,8 +223,8 @@
                 <tr>
                     <td>
                         <form action = "" method = "post">
-                            <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
-                            <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br />
+                            <label>UserName  :</label><input type = "text" name = "username" class = "box" placeholder="6 Char Max" /><br /><br />
+                            <label>Password  :</label><input type = "password" name = "password" class = "box" placeholder="6 Char Max" /><br/><br />
                             <input type = "submit" value = " Register! "/><br />
                         </form>
                         

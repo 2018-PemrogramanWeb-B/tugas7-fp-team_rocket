@@ -14,22 +14,31 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <style>
   .fakeimg {
-      height: 200px;
-      background: #aaa;
-  }
+	height: 200px;
+	background: #aaa;
+  	}
+  .navbar-brand {
+	display: inline-block;
+	padding-top: .3125rem;
+	padding-bottom: .3125rem;
+	margin-right: 33rem;
+	font-size: 1.25rem;
+	line-height: inherit;
+	white-space: nowrap;
+	}
   </style>
 </head>
 <body>
-    <form action="index.php" method="get">
       <div class="jumbotron text-center" style="margin-bottom:0">
         <h1>MyJourney</h1>
+        <h3><?php echo " " . date("Y/m/d") ; ?></h3>
         <p>FP PWEB B</p> 
       </div>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav margin-right: 30rem, class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#"><?php if ($_SESSION){echo"$_SESSION[username]'s Home";}?></a>
-  <a class="navbar-brand" href="insert.php">Activity</a>
-  <a class="navbar-brand" href="logout.php">Log Out</a>
+  <a class="navbar-brand" href="newact.php">Activity</a>
+  <a align='right' class="navbar-brand" href="logout.php">Log Out</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,30 +47,29 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
-      <h1><?php if ($_SESSION){echo"Welcome $_SESSION[username]!";}?></h1>
-      <h5>Photo of me:</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <hr class="d-sm-none">
+      <h2><?php if ($_SESSION){echo"Welcome $_SESSION[username]!";}?></h2><br><br>
+      <h5 style="font-family:courier; font-style: italic; text-align: justify;">Determine never to be idle.<br>No person will have occasion to complain of the want of time who never loses any.<br>It is wonderful how much can be done if we are always doing.</h5>
+      <h6>"Thomas Jefferson"</h6>
     </div>
     <div class="col-sm-8">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      	<?php
+		  $activity = $conn->query("SELECT * FROM activity WHERE (user_id = '$_SESSION[uid]' AND `Status` = 0) ORDER BY id");
+		  print "<table cellpadding=3>";
+		      print "
+		      	<tr>
+		      		<th width=300>Aktivitas</th>
+		      		<th width=300>Deadline</th>
+		      		<th width=300 colspan=2>Jenis</th>
+		      	</tr>";
+		      while($info = mysqli_fetch_array($activity)){
+		        print "<tr><td>".$info['activity']."</td>";
+		        print "<td>".$info['Deadline']."</td>";
+		        print "<td>".$info['Jenis']."</td>";
+		        print "<td><a href=finact.php?id=".$info['id'].">Selesai</a></td>";
+		      }
+		?>
     </div>
   </div>
-</div>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
 </div>
 
 </body>
