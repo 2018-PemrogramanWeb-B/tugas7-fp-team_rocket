@@ -65,9 +65,9 @@
 		  print "<table cellpadding=3 style='table-layout: fixed; width: 100px';>";
 		      print "
 		      	<tr>
-		      		<th width=300>Aktivitas</th>
-		      		<th width=300>Deadline</th>
-		      		<th width=300 colspan=2>Jenis</th>
+		      		<th width=250>Aktivitas</th>
+		      		<th width=250>Deadline</th>
+		      		<th width=250 colspan=2>Jenis</th>
 		      	</tr>";
 		      while($info = mysqli_fetch_array($activity)){
 		        print "<tr><td style=' word-wrap: break-word;'>".$info['activity']."</td>";
