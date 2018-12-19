@@ -50,7 +50,7 @@
     </button>
 </nav>
 
-<div class="container" style="margin-top:30px; background:#ffffff ;">
+<div class="container" style="margin-top:30px; background:#ffffff; padding:50px;">
   <div class="row">
     <div class="col-sm-4">
       <h2><?php if ($_SESSION){echo"Welcome $_SESSION[username]!";}?></h2><br><br>
