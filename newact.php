@@ -50,7 +50,7 @@
   </style>
 </head>
 <body>
-      <div class="jumbotron text-center" style="margin-bottom:0">
+      <div class="jumbotron text-center" style="margin-bottom:0; padding: 3rem">
         <h1>MyJourney</h1>
         <h3><?php echo " " . date("Y/m/d") ; ?></h3>
         <p>FP PWEB B</p> 

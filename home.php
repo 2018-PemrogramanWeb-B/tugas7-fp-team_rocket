@@ -29,7 +29,7 @@
   </style>
 </head>
 <body>
-      <div class="jumbotron text-center" style="margin-bottom:0">
+      <div class="jumbotron text-center" style="margin-bottom:0; padding: 3rem">
         <h1>MyJourney</h1>
         <h3><?php echo " " . date("Y/m/d") ; ?></h3>
         <p>FP PWEB B</p> 
@@ -56,7 +56,7 @@
       <h1 align="center">Unfinished Activity</h1><br>
       	<?php
 		  $activity = $conn->query("SELECT * FROM activity WHERE (user_id = '$_SESSION[uid]' AND `Status` = 0) ORDER BY id");
-		  print "<table cellpadding=3 style='table-layout: fixed; width: 300px';>";
+		  print "<table cellpadding=3 style='table-layout: fixed; width: 100px';>";
 		      print "
 		      	<tr>
 		      		<th width=300>Aktivitas</th>
