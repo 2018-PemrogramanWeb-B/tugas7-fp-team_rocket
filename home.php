@@ -33,13 +33,14 @@
 	}
   </style>
 </head>
-<body background="https://new.graphicpanic.com/wp-content/uploads/2015/09/lined-paper-texture-background-powerpoint.jpg">
+<body background="https://d19gb5k9ejx8w0.cloudfront.net/uploads/2016/02/activity-kits-featured-image.png">
+
+
       <div class="jumbotron text-center" style="margin-bottom:0; padding: 3rem; background-image: url(http://www.tonyfahkry.com/wp-content/uploads/2014/12/journey-752x490.jpg); background-size: cover; background-repeat: no-repeat; background-size: 1600px 235px;">
         <h1>MyJourney</h1>
         <h3><?php echo " " . date("Y/m/d") ; ?></h3>
         <p>FP PWEB B</p> 
       </div>
-
 <nav margin-right: 30rem, class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#"><?php if ($_SESSION){echo"$_SESSION[username]'s Home";}?></a>
   <a class="navbar-brand" href="newact.php">Activity</a>
@@ -49,7 +50,7 @@
     </button>
 </nav>
 
-<div class="container" style="margin-top:30px">
+<div class="container" style="margin-top:30px; background:#ffffff ;">
   <div class="row">
     <div class="col-sm-4">
       <h2><?php if ($_SESSION){echo"Welcome $_SESSION[username]!";}?></h2><br><br>
@@ -79,6 +80,7 @@
     </div>
   </div>
 </div>
+
 
 </body>
 </html>
