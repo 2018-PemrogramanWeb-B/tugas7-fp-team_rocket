@@ -51,10 +51,12 @@
       <h5 style="font-family:courier; font-style: italic; text-align: justify;">Determine never to be idle.<br>No person will have occasion to complain of the want of time who never loses any.<br>It is wonderful how much can be done if we are always doing.</h5>
       <h6>"Thomas Jefferson"</h6>
     </div>
+    <table style=""></table>
     <div class="col-sm-8">
+      <h1 align="center">Unfinished Activity</h1><br>
       	<?php
 		  $activity = $conn->query("SELECT * FROM activity WHERE (user_id = '$_SESSION[uid]' AND `Status` = 0) ORDER BY id");
-		  print "<table cellpadding=3>";
+		  print "<table cellpadding=3 style='table-layout: fixed; width: 300px';>";
 		      print "
 		      	<tr>
 		      		<th width=300>Aktivitas</th>
@@ -62,11 +64,12 @@
 		      		<th width=300 colspan=2>Jenis</th>
 		      	</tr>";
 		      while($info = mysqli_fetch_array($activity)){
-		        print "<tr><td>".$info['activity']."</td>";
+		        print "<tr><td style=' word-wrap: break-word;'>".$info['activity']."</td>";
 		        print "<td>".$info['Deadline']."</td>";
 		        print "<td>".$info['Jenis']."</td>";
 		        print "<td><a href=finact.php?id=".$info['id'].">Selesai</a></td>";
 		      }
+      print "</table>";
 		?>
     </div>
   </div>

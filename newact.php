@@ -74,11 +74,11 @@
     </div>
     <div class="col-sm-8">
       	<div align = "center">
-          <h1>Formulir Input User</h1>
-          <div style = "width:600px; border: solid 1px #333333; " align = "left">
+          <h1>Activity Input</h1>
+          <div style = "width:600px; " align = "left">
               <div style = "margin:30px">
                 <form action = "" method = "post">
-                  <label>Activity Name  :</label><br><input type = "text" name = "activity" class = "box"/><br>
+                  <label>Activity Name  :</label><br><textarea rows="3" type = "text" name = "activity" class = "box" style="width: 500px"></textarea><br>
                   <label>Deadline  :</label><br><input type = "date" name = "deadline" class = "box" /><br>
                   <label>Category</label><br>
                   <select name="category">
