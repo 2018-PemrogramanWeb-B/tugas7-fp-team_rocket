@@ -59,26 +59,32 @@
     </div>
     <table style=""></table>
     <div class="col-sm-8">
-      <h1 align="center">Finished Target</h1><br>
+      <h1 align="center"><?php if ($_SESSION){echo"$_SESSION[username]'s Achievement (so far)";}?></h1><br>
       	<?php
-		  $activity = $conn->query("SELECT * FROM activity WHERE (user_id = '$_SESSION[uid]' AND `Status` = 1) ORDER BY id");
-		  print "<table cellpadding=3 style='table-layout: fixed; width: 100px';>";
+		  $query = "SELECT * FROM `user` WHERE `id` = '$_SESSION[uid]'";
+      $result = mysqli_query($conn, $query);
+      $achiev = mysqli_fetch_assoc($result);
+		  print "<table cellpadding=3 style='table-layout: fixed; width: 150px';>";
 		      print "
 		      	<tr>
-		      		<th width=250>Activity</th>
-		      		<th width=250>Deadline</th>
-		      		<th width=250 colspan=2>Type</th>
+		      		<th width=250></th>
+		      		<th width=250>Achievement</th>
+		      		<th width=250 colspan=2>Info</th>
 		      	</tr>";
-		      while($info = mysqli_fetch_array($activity)){
-		        print "<tr><td style=' word-wrap: break-word;'>".$info['activity']."</td>";
-		        print "<td>".$info['Deadline']."</td>";
-		        print "<td>".$info['Jenis']."</td>";
+		      if($achiev['physical_activities'] == 1){
+		        print "<tr><td align='center'><img src='images/hand.png' height='70' width='70'/>
+            </td>";
+		        print "<td>STR 99</td>";
+		        print "<td style=' word-wrap: break-word; text-align: justify'>Congrats! You've done so much Physical Activities, you get to destroy a boulder with One Punch!</td>";
 		      }
+          if($achiev['social_activities'] == 1){
+            print "<tr><td align='center'><img src='images/people.png' height='70' width='70'/>
+            </td>";
+            print "<td>Famous</td>";
+            print "<td style=' word-wrap: break-word; text-align: justify'>You're not Anti Social, Congrats?</td>";
+          }
       print "</table>";
 		?>
-    <form action = "/register.php" method = "get">
-        <br><br><div align="center"><input type="button" value="Achievement" onclick="window.location.href='achiev.php'" /></div>
-    </form>
     </div>
   </div>
 </div>
