@@ -43,7 +43,7 @@
       </div>
 <nav margin-right: 30rem, class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#"><?php if ($_SESSION){echo"$_SESSION[username]'s Home";}?></a>
-  <a class="navbar-brand" href="newact.php">Activity</a>
+  <a class="navbar-brand" href="unfinact.php">Target</a>
   <a align='right' class="navbar-brand" href="logout.php">Log Out</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -59,21 +59,21 @@
     </div>
     <table style=""></table>
     <div class="col-sm-8">
-      <h1 align="center">Unfinished Activity</h1><br>
+      <h1 align="center">Finished Target</h1><br>
       	<?php
-		  $activity = $conn->query("SELECT * FROM activity WHERE (user_id = '$_SESSION[uid]' AND `Status` = 0) ORDER BY id");
+		  $activity = $conn->query("SELECT * FROM activity WHERE (user_id = '$_SESSION[uid]' AND `Status` = 1) ORDER BY id");
 		  print "<table cellpadding=3 style='table-layout: fixed; width: 100px';>";
 		      print "
 		      	<tr>
-		      		<th width=250>Aktivitas</th>
+		      		<th width=250>Activity</th>
 		      		<th width=250>Deadline</th>
-		      		<th width=250 colspan=2>Jenis</th>
+		      		<th width=250 colspan=2>Type</th>
 		      	</tr>";
 		      while($info = mysqli_fetch_array($activity)){
 		        print "<tr><td style=' word-wrap: break-word;'>".$info['activity']."</td>";
 		        print "<td>".$info['Deadline']."</td>";
 		        print "<td>".$info['Jenis']."</td>";
-		        print "<td><a href=finact.php?id=".$info['id'].">Selesai</a></td>";
+		        //print "<td><a href=finact.php?id=".$info['id'].">Selesai</a></td>";
 		      }
       print "</table>";
 		?>
